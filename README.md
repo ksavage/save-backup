@@ -1,4 +1,4 @@
-![Serious Snutt is Serious](Serious-Snutt.png "BACK UP YOUR SAVE FILES!!!")
+![Serious Snutt is Serious](https://i.imgur.com/dp20pbY.png "BACK UP YOUR SAVE FILES!!!")
 
 # Basic Save Game Batch Script
 This is a batch script I use to backup save game files on my PC.
