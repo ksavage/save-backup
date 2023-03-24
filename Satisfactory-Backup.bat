@@ -23,10 +23,10 @@ REM New Folder name: YYYY-MM-DD_HHNNSS
 set DIR_NAME=%CUR_YYYY%-%CUR_MM%-%CUR_DD%_%CUR_HH%%CUR_NN%%CUR_SS%
 
 REM Make the destination folder
-mkdir %BACKUP_LOC%%DIR_NAME%
+mkdir %BACKUP_LOC%\%DIR_NAME%
 
 REM Copy all the things! _o/
-robocopy %SAVES_LOC% %BACKUP_LOC%%DIR_NAME% /E
+robocopy %SAVES_LOC% %BACKUP_LOC%\%DIR_NAME% /E
 
 echo Done.
 REM Wait for user to exit, I hate it when console windows close so fast I don't know what it was.
