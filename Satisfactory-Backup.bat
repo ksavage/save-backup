@@ -22,9 +22,6 @@ set CUR_MS=%time:~9,2%
 REM New Folder name: YYYY-MM-DD_HHNNSS
 set DIR_NAME=%CUR_YYYY%-%CUR_MM%-%CUR_DD%_%CUR_HH%%CUR_NN%%CUR_SS%
 
-REM Make the destination folder
-mkdir %BACKUP_LOC%\%DIR_NAME%
-
 REM Copy all the things! _o/
 robocopy %SAVES_LOC% %BACKUP_LOC%\%DIR_NAME% /E
 
