@@ -8,16 +8,21 @@ set BACKUP_LOC="F:\Backups\Satisfactory"
 
 REM ---- No Edits Needed Below this Line ----
 
-REM Make a new folder name using date and time.
-set CUR_YYYY=%date:~10,4%
-set CUR_MM=%date:~4,2%
-set CUR_DD=%date:~7,2%
-set CUR_HH=%time:~0,2%
-if %CUR_HH% lss 10 (set CUR_HH=0%time:~1,1%)
-
-set CUR_NN=%time:~3,2%
-set CUR_SS=%time:~6,2%
-set CUR_MS=%time:~9,2%
+REM Get Date-Time in a Locale friendly way.
+for /F "skip=1 delims=" %%I in ('
+	wmic PATH Win32_LocalTime GET Day^,Hour^,Minute^,Month^,Second^,Year /FORMAT:TABLE
+') do (
+	for /F "tokens=1-6" %%J in ("%%I") do (
+		set CUR_DD=0%%J
+		set CUR_HH=%%K
+		set CUR_NN=%%L
+		set CUR_MM=0%%M
+		set CUR_SS=%%N
+		set CUR_YYYY=%%O
+	)
+)
+set CUR_DD=%CUR_DD:~-2%
+set CUR_MM=%CUR_MM:~-2%
 
 REM New Folder name: YYYY-MM-DD_HHNNSS
 set DIR_NAME=%CUR_YYYY%-%CUR_MM%-%CUR_DD%_%CUR_HH%%CUR_NN%%CUR_SS%
